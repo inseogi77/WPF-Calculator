@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Calculator
 {
@@ -37,7 +24,7 @@ namespace Calculator
             double newNumber;
             if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
             {
-                switch(selectedOperator)
+                switch (selectedOperator)
                 {
                     case SelectedOperator.Addition:
                         result = SimpleMath.Add(lastNumber, newNumber);
@@ -71,7 +58,7 @@ namespace Calculator
 
         private void NegativeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 lastNumber = lastNumber * -1;
                 resultLabel.Content = lastNumber.ToString();
@@ -177,7 +164,7 @@ namespace Calculator
 
         public static double Divide(double n1, double n2)
         {
-            if(n2 == 0)
+            if (n2 == 0)
             {
                 MessageBox.Show("Division by 0 is not supported", "Wrong operation", MessageBoxButton.OK, MessageBoxImage.Error);
                 return 0;
